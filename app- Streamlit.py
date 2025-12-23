@@ -8,8 +8,6 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
 
 from sklearn.metrics import (
     accuracy_score,
@@ -566,6 +564,7 @@ st.markdown(
 """
 
 )
+
 
 
 
