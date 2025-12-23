@@ -7,10 +7,6 @@ warnings.filterwarnings("ignore")
 import numpy as np
 import pandas as pd
 import streamlit as st
-
-from sklearn.pipeline import Pipeline
-from sklearn.compose import ColumnTransformer
-from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
 from sklearn.linear_model import LogisticRegression
@@ -571,6 +567,7 @@ st.markdown(
 """
 
 )
+
 
 
 
