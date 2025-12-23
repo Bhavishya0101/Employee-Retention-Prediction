@@ -8,7 +8,6 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from sklearn.model_selection import train_test_split, StratifiedKFold
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
@@ -572,6 +571,7 @@ st.markdown(
 """
 
 )
+
 
 
 
