@@ -7,7 +7,6 @@ warnings.filterwarnings("ignore")
 import numpy as np
 import pandas as pd
 import streamlit as st
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -567,6 +566,7 @@ st.markdown(
 """
 
 )
+
 
 
 
