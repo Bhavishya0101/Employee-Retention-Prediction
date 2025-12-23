@@ -143,7 +143,14 @@ else:
 # REAL-TIME PREDICTION UI
 # =====================================================
 st.subheader("🔮 Predict Job Change Likelihood")
-city = st.text_input("City", "city_1")
+city_options = sorted(df["city"].dropna().unique().tolist())
+
+city = st.selectbox(
+    "City",
+    city_options,
+    index=city_options.index("city_1") if "city_1" in city_options else 0
+)
+
 city_development_index = st.slider("City Development Index", 0.0, 1.0, 0.6)
 training_hours = st.number_input("Training Hours", 0, 1000, 40)
 experience = st.number_input("Experience (years)", 0.0, 50.0, 3.0)
@@ -192,5 +199,6 @@ if st.button("Predict"):
 
 st.markdown("---")
 st.caption("Model: Random Forest + SMOTE | Deployment: Streamlit Cloud")
+
 
 
