@@ -179,3 +179,4 @@ if st.button("Predict"):
 
 st.markdown("---")
 st.caption("Model: Random Forest + SMOTE | Deployment: Streamlit Cloud")
+
