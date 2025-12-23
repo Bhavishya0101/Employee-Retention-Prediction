@@ -143,7 +143,7 @@ else:
 # REAL-TIME PREDICTION UI
 # =====================================================
 st.subheader("🔮 Predict Job Change Likelihood")
-
+city = st.text_input("City", "city_1")
 city_development_index = st.slider("City Development Index", 0.0, 1.0, 0.6)
 training_hours = st.number_input("Training Hours", 0, 1000, 40)
 experience = st.number_input("Experience (years)", 0.0, 50.0, 3.0)
@@ -158,6 +158,7 @@ company_type = st.selectbox("Company Type", ["Pvt Ltd", "Public Sector", "Startu
 
 if st.button("Predict"):
     input_df = pd.DataFrame([{
+        "city": city,
         "city_development_index": city_development_index,
         "training_hours": training_hours,
         "experience": experience,
@@ -172,11 +173,24 @@ if st.button("Predict"):
     }])
 
     input_df = feature_engineering(input_df)
+
+    # 🔐 CRITICAL FIX: ALIGN COLUMNS
+    for col in X.columns:
+        if col not in input_df.columns:
+            input_df[col] = np.nan
+
+    input_df = input_df[X.columns]
+
     prob = model.predict_proba(input_df)[0][1]
 
     st.metric("Job Change Probability", f"{prob:.2%}")
-    st.write("Prediction:", "Looking for Job Change" if prob > 0.5 else "Not Looking")
+    st.write(
+        "Prediction:",
+        "Looking for Job Change" if prob > 0.5 else "Not Looking"
+    )
+
 
 st.markdown("---")
 st.caption("Model: Random Forest + SMOTE | Deployment: Streamlit Cloud")
+
 
