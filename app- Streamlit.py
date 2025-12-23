@@ -46,8 +46,8 @@ except Exception:
     LGBMClassifier = None
 
 # Paths
-DEFAULT_TRAIN_PATH = "/mnt/data/aug_train.csv"
-MODEL_SAVE_PATH = "./best_employee_retention_model.joblib"
+DEFAULT_TRAIN_PATH = "aug_train.csv"
+MODEL_SAVE_PATH = "best_employee_retention_model.joblib"
 
 # Streamlit basic config
 st.set_page_config(
@@ -573,4 +573,5 @@ st.markdown(
 - SMOTE is used inside the pipeline to handle class imbalance.
 - The app provides: EDA, model comparison, performance visualization, and single-profile prediction.
 """
+
 )
